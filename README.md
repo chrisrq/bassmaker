@@ -11,7 +11,7 @@ Will be implementing a system for reading an audio file and directly writing sam
 
 First, write the template for your DPCM instrument in the note_data.txt file. 
 
-Every line in the .txt file has data for three numerical parameters (in this exact order): note, sample index, and sample pitch. Notes have values from 0 (C-0), to 95 (B-7). Sample indices correspond to the # section of the "Loaded samples" section of the instrument editor. Assuming no samples have been loaded in your module, if you import sampleA, sampleB, and sampleC in that order, the corresponding indices for them are 0, 1, and 2 respectively. Finally, pitch just describes the DPCM sample pitch. This value can range from 0 to 15. 
+Every line in the .txt file has data for three numerical parameters (in this exact order): note, sample index, and sample pitch. Notes have values from 0 (C-0), to 95 (B-7). Sample indices correspond to the # section of the "Loaded samples" section of the instrument editor. Assuming no samples have been loaded in your module, if you import sampleA, sampleB, and sampleC in that order, the corresponding indices for them are 1, 2, and 3 respectively. Finally, pitch just describes the DPCM sample pitch. This value can range from 0 to 15. 
 
 Make sure to assign your own indices for each sample you intend to use before writing anything, and make sure these indices are in order starting from 1. Every line must be written in ascending order relative to the note data. 
 
@@ -21,5 +21,5 @@ The default note_data.txt file houses the instrument settings for the standard b
 
 # Bugs
 
-- Famitracker doesn't seem to like the way the sample index 0 gets written to the .fti with this program. When 0 is used as a sample index in the .txt, the sample you assign to index 0 will simply not be mapped to any of the rows whose sample index is 0. 
+- Famitracker doesn't seem to like the way the sample index 0 gets written to the .fti with this program. When 0 is used as a sample index in the .txt, the sample you assign to index 0 will simply not be mapped to any of the rows whose sample index is 0. Sample indices are supposed to be zero-indexed, which is why this is a bug. 
 - A blank sample will get imported when you load the output .fti. Does nothing and can be easily removed. 
